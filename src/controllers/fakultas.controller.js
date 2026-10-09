@@ -84,18 +84,4 @@ class FakultasController {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 export default FakultasController
