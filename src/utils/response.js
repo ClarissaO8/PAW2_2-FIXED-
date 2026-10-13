@@ -16,7 +16,7 @@ const apiResponseValidation = ({ res, status = 422, message = 'Validation error'
       status,
       message,
     },
-    errors: z.flattenError(errors).fieldErrors,
+    errors: z.flatten(errors).fieldErrors,
   })
 }
 

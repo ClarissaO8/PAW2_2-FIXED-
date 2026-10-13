@@ -1,6 +1,6 @@
-import mongoose, { mongo } from "mongoose";
+import mongoose from "mongoose";
 
-const schema = new mongo.schema(
+const schema = new mongoose.Schema(
     {
         kode: {
             type: String,
@@ -13,7 +13,7 @@ const schema = new mongo.schema(
             unique: true
         },
         fakultas: {
-            type : mongoose.Schema.ObjectId,
+            type : mongoose.Schema.Types.ObjectId,
             ref: "fakultas",
             required : true
         }
@@ -22,3 +22,7 @@ const schema = new mongo.schema(
         timestamps : true
     },
 );
+
+const ProdiModel = mongoose.model("Prodi", schema);
+
+export default ProdiModel;

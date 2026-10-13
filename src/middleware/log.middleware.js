@@ -1,7 +1,7 @@
 const logMiddleware = (req, res, next) => {
     console.log("HALLO SAYA LOG MIDDLEWARE")
 
-    next
+    next();
 }
 
 export default logMiddleware
