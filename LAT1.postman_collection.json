@@ -1,0 +1,81 @@
+{
+  "info": {
+    "_postman_id": "e4bf5c4f-c32c-46d3-bef7-8c70d8b03d2d",
+    "name": "LAT1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58519361",
+    "_collection_link": "https://go.postman.co/collection/58519361-e4bf5c4f-c32c-46d3-bef7-8c70d8b03d2d?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "List Fakultas",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/fakultas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "fakultas"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Show Prodi",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/fakultas/6abd094fffb55a823ea4f0e6",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "api",
+            "fakultas",
+            "6abd094fffb55a823ea4f0e6"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List Prodi",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Prodi",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{BASE_URL}}/prodi/6ace61589c44de000c5217b4",
+          "host": [
+            "{{BASE_URL}}"
+          ],
+          "path": [
+            "prodi",
+            "6ace61589c44de000c5217b4"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
