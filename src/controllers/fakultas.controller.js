@@ -18,7 +18,11 @@ class FakultasController {
         const fakultas = await FakultasModel.findById(fakultasId)
 
         if (!fakultas) {
-            return apiResponse({ res, status: 404, message: 'Fakultas tidak ditemukan' })
+            return apiResponse({ 
+                res, 
+                status: 404, 
+                message: 'Fakultas tidak ditemukan' 
+            })
         }
 
         return apiResponse({ res, status: 200, data: fakultas })
@@ -37,16 +41,25 @@ class FakultasController {
         const { name } = req.body
 
         if (!name) {
-            return apiResponse({ res, status: 400, message: 'Nama fakultas wajib diisi' })
+            return apiResponse({ 
+                res, 
+                status: 400, 
+                message: 'Nama fakultas wajib diisi' 
+            })
         }
         const newFakultas = await FakultasModel.create({ name })
-        return apiResponse({ res, status: 201, message: "Fakultas berhasil dibuat", data: newFakultas })
+        return apiResponse({ 
+            res, 
+            status: 201, 
+            message: "Fakultas berhasil dibuat", 
+            data: newFakultas 
+        })
     }
 
     static async update(req, res) {
         const fakultasId = req.params.id
 
-        FakultasController
+        const result = storeFakultasSchema.safeParse(req.body)
 
         if (!result.success) {
             return apiResponseValidation({
@@ -59,7 +72,11 @@ class FakultasController {
 
         const exists = await FakultasModel.exists({ _id: fakultasId })
         if (!exists) {
-            return apiResponse({ res, status: 404, message: 'Fakultas tidak ditemukan' })
+            return apiResponse({ 
+                res, 
+                status: 404, 
+                message: 'Fakultas tidak ditemukan' 
+            })
         }
 
         const updateFakultas = await FakultasModel.findOneAndUpdate(
@@ -68,7 +85,12 @@ class FakultasController {
             { new: true }
         )
 
-        return apiResponse({ res, status: 200, message: "Fakultas berhasil diupdate", data: updateFakultas })
+        return apiResponse({ 
+            res, 
+            status: 200, 
+            message: 'Fakultas berhasil diupdate', 
+            data: updateFakultas 
+        })
     }
 
     static async delete(req, res) {
@@ -76,11 +98,19 @@ class FakultasController {
 
         const exists = await FakultasModel.exists({ _id: fakultasId })
         if (!exists) {
-            return apiResponse({ res, status: 404, message: 'Fakultas tidak ditemukan' })
+            return apiResponse({ 
+                res, 
+                status: 404, 
+                message: 'Fakultas tidak ditemukan' 
+            })
         }
 
         await FakultasModel.findOneAndDelete({ _id: fakultasId })
-        return apiResponse({ res, status: 200, message: 'Fakultas berhasil dihapus', data: null })
+        return apiResponse({ 
+            res, 
+            status: 200, 
+            message: 'Fakultas berhasil dihapus', 
+            data: null })
     }
 }
 

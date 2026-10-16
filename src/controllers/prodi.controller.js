@@ -21,17 +21,29 @@ class ProdiController {
     const prodi = await ProdiModel.findById(prodiId).populate('fakultas');
 
     if (!prodi) {
-      return apiResponse({ res, status: 404, message: "Prodi tidak ada", data: null });
+      return apiResponse({ 
+        res, 
+        status: 404, 
+        message: "Prodi tidak ada", data: null 
+      })
     }
 
-    return apiResponse({ res, status: 200, message: "Detail prodi", data : prodi });
+    return apiResponse({ 
+      res, 
+      status: 200, 
+      message: "Detail prodi", 
+      data : prodi 
+    })
   }
 
   static async store(req, res) {
     const result = storeProdiSchema.safeParse(req.body);
 
     if (!result.success) {
-      return apiResponseValidation({ res, errors: result.error });
+      return apiResponseValidation({ 
+        res, 
+        errors: result.error 
+      })
     }
 
     const { kode, nama_prodi, fakultas_id } = result.data;
@@ -41,16 +53,26 @@ class ProdiController {
     });
 
     if (!isExists) {
-      return apiResponse({ res, status: 404, message: "Fakultas tidak ada", data: null });
+      return apiResponse({ 
+        res, 
+        status: 404, 
+        message: "Fakultas tidak ada", 
+        data: null 
+      })
     }
 
     const newProdi = await ProdiModel.create({
       kode,
       nama_prodi,
       fakultas: fakultas_id,
-    });
+    })
 
-    return apiResponse({ res, status: 201, message: "Prodi berhasil di buat", data: newProdi });
+    return apiResponse({ 
+      res, 
+      status: 201, 
+      message: "Prodi berhasil di buat", 
+      data: newProdi 
+    })
   }
 
   static async update(req, res) {
@@ -58,45 +80,78 @@ class ProdiController {
     const result = updateProdiSchema.safeParse(req.body);
 
     if (!result.success) {
-      return apiResponseValidation({ res, errors: result.error });
+      return apiResponseValidation({ 
+        res, 
+        errors: result.error 
+      })
     }
 
     const prodi = await ProdiModel.findById(prodiId);
     if (!prodi) {
-      return apiResponse({ res, status: 404, message: "Prodi tidak ada", data: null });
+      return apiResponse({ 
+        res, 
+        status: 404, 
+        message: "Prodi tidak ada", 
+        data: null 
+      })
     }
 
-    const { kode, nama_prodi, fakultas_id } = result.data;
+    const {kode, nama_prodi, fakultas_id} = result.data;
 
     if (fakultas_id) {
       const isExists = await FakultasModel.exists({
         _id: new mongoose.Types.ObjectId(fakultas_id),
-      });
+      })
 
       if (!isExists) {
-        return apiResponse({ res, status: 404, message: "Fakultas tidak ada", data: null });
+        return apiResponse({ 
+          res, 
+          status: 404, 
+          message: "Fakultas tidak ada", 
+          data: null 
+        })
       }
     }
 
     const updatedProdi = await ProdiModel.findByIdAndUpdate(
-      prodiId,
-      { kode, nama_prodi, fakultas: fakultas_id },
-      { new: true }
+      prodiId, 
+      { 
+        kode : kode, 
+        nama_prodi, 
+        fakultas: fakultas_id,
+      }, 
+      {
+      new : true,
+      },
     ).populate("fakultas");
 
-    return apiResponse({ res, status: 200, message: "Prodi berhasil diperbarui", data: updatedProdi });
+    return apiResponse({ 
+      res, 
+      status: 200, 
+      message: "Data berhasil update", 
+      data: updatedProdi 
+    })
   }
 
   static async delete(req, res) {
-    const prodiId = req.params.id;
-    const prodi = await ProdiModel.findById(prodiId);
+    const prodiId = req.params.id
+    const prodi = await ProdiModel.findByIdAndDelete(prodiId)
 
     if (!prodi) {
-      return apiResponse({ res, status: 404, message: "Prodi tidak ada", data: null });
+      return apiResponse({ 
+        res, 
+        status: 404, 
+        message: "Prodi tidak ada", 
+        data: null 
+      })
     }
 
-    await ProdiModel.findByIdAndDelete(prodiId);
-    return apiResponse({ res, status: 200, message: "Prodi berhasil dihapus", data: null });
+    return apiResponse({ 
+      res, 
+      status: 200, 
+      message: "Prodi berhasil di hapus", 
+      data: null 
+    })
   }
 }
 

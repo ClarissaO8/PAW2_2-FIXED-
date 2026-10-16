@@ -1,0 +1,242 @@
+{
+  "info": {
+    "_postman_id": "e4bf5c4f-c32c-46d3-bef7-8c70d8b03d2d",
+    "name": "PAW2-LAT1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58519361",
+    "_collection_link": "https://go.postman.co/collection/58519361-e4bf5c4f-c32c-46d3-bef7-8c70d8b03d2d?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Fakultas",
+      "item": [
+        {
+          "name": "List Fakultas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/fakultas",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "fakultas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Fakultas",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Fakultas Ekonomi dan Bisnis\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/fakultas",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "fakultas"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Show Fakultas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/fakultas/6ace4c8086c8cc3a705b2d91",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "fakultas",
+                "6ace4c8086c8cc3a705b2d91"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Fakultas",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/fakultas/6ace4ab586c8cc3a705b2d90",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "fakultas",
+                "6ace4ab586c8cc3a705b2d90"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Fakultas",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\" : \"Fakultas Ekonomi\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/fakultas/6ad20b8994948383d451ab5c",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "fakultas",
+                "6ad20b8994948383d451ab5c"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Prodi",
+      "item": [
+        {
+          "name": "Show Prodi",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/prodi/6ace5629d8f64b1bacf7e240",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "prodi",
+                "6ace5629d8f64b1bacf7e240"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List Prodi",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"kode\": \"SDA\",\r\n  \"nama_prodi\": \"Spesialis Dokter Anak\",\r\n  \"fakultas_id\": \"6ace4ab586c8cc3a705b2d90\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/prodi",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "prodi"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Prodi",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{BASE_URL}}/prodi/6ad2154fd2d8aa5274c6fb2d",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "prodi",
+                "6ad2154fd2d8aa5274c6fb2d"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Prodi",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"kode\" : \"SI-UPDATE-1\",\r\n    \"nama_prodi\" : \"Sistem Informasi Update 1\",\r\n    \"fakultas_id\" : \"6ace4c8086c8cc3a705b2d91\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/prodi/6ace5629d8f64b1bacf7e240",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "prodi",
+                "6ace5629d8f64b1bacf7e240"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Prodi",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"kode\" : \"MJ-01\",\r\n    \"nama_prodi\" : \"Manajemen\",\r\n    \"fakultas_id\" : \"6ad20b8994948383d451ab5c\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{BASE_URL}}/prodi",
+              "host": [
+                "{{BASE_URL}}"
+              ],
+              "path": [
+                "prodi"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
