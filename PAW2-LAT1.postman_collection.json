@@ -16,12 +16,26 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{BASE_URL}}/fakultas",
+              "raw": "{{BASE_URL}}/fakultas?search=ilmu&sort=asc&sortBy=name",
               "host": [
                 "{{BASE_URL}}"
               ],
               "path": [
                 "fakultas"
+              ],
+              "query": [
+                {
+                  "key": "search",
+                  "value": "ilmu"
+                },
+                {
+                  "key": "sort",
+                  "value": "asc"
+                },
+                {
+                  "key": "sortBy",
+                  "value": "name"
+                }
               ]
             }
           },
@@ -34,7 +48,7 @@
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"name\": \"Fakultas Ekonomi dan Bisnis\"\r\n}",
+              "raw": "{\r\n    \"name\": \"Fakultas Ilmu Design\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -144,15 +158,6 @@
           "request": {
             "method": "GET",
             "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n  \"kode\": \"SDA\",\r\n  \"nama_prodi\": \"Spesialis Dokter Anak\",\r\n  \"fakultas_id\": \"6ace4ab586c8cc3a705b2d90\"\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
             "url": {
               "raw": "{{BASE_URL}}/prodi",
               "host": [
