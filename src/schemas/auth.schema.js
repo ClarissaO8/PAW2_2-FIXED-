@@ -5,13 +5,13 @@ const passwordSchema = z
     .trim()
     .min(8, "Password minimal 8 karakter")
     .refine(
-        (value) => Buffer.byteLength(value, útf-8) <= 72,
+        (value) => Buffer.byteLength(value, "utf-8") <= 72,
         {
             error : "Password maksimal 72 byte UTF-8"
         }
     )
 
-const registerSchema = z.object({
+export const registerSchema = z.object({
     name: z.string().trim().min(3, "Name minimal 3 karakter"),
     email: z.email(),
     password: passwordSchema

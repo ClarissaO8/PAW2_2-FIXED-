@@ -4,9 +4,14 @@ import FakultasController from '../controllers/fakultas.controller.js'
 import ProdiController from '../controllers/prodi.controller.js'
 import logMiddleware from '../middleware/log.middleware.js'
 import { authenticateJwt } from '../middleware/auth.js'
+import AuthController from '../controllers/auth.controller.js'
 
 const router = express.Router()
+
 router.use(logMiddleware)
+
+router.post('/register', AuthController.register)
+router.post('/login', AuthController.login)
 router.use(authenticateJwt)
 
 // Routes Fakultas

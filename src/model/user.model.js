@@ -1,7 +1,6 @@
-const { default: mongoose } = require("mongoose");
-const { required, lowercase } = require("zod/mini");
+import mongoose from "mongoose";
 
-const schema = new moongose.Schema(
+const schema = new mongoose.Schema(
     {
         name: {
             type: String,
